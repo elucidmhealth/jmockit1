@@ -16,11 +16,11 @@ dependencies {
     //implementation 'com.google.guava:guava:23.0'
 
     // Use JUnit test framework
-    implementation 'junit:junit:4.12'
+    api 'junit:junit:4.12'
     
-    implementation 'com.google.code.findbugs:jsr305:3.0.2'
-    implementation 'org.junit.jupiter:junit-jupiter-engine:5.0.2'
-    implementation 'org.testng:testng:6.10'/*TODO: convert these exclusion lines:
+    api 'com.google.code.findbugs:jsr305:3.0.2'
+    api 'org.junit.jupiter:junit-jupiter-engine:5.0.2'
+    api 'org.testng:testng:6.10'/*TODO: convert these exclusion lines:
     <dependency>
         <groupId>org.testng</groupId><artifactId>testng</artifactId><version>6.10</version>
         <optional>true</optional>
@@ -31,9 +31,9 @@ dependencies {
     </dependency>*/
     
     
-    implementation 'org.springframework:spring-web:4.2.0.RELEASE'
+    api 'org.springframework:spring-web:4.2.0.RELEASE'
 
-    implementation 'javax:javaee-api:7.0'/*TODO:
+    api 'javax:javaee-api:7.0'/*TODO:
     <dependency>
         <groupId>javax</groupId><artifactId>javaee-api</artifactId><version>7.0</version>
         <optional>true</optional>
