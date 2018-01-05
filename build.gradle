@@ -9,6 +9,7 @@ repositories {
 }
 
 sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 dependencies {
     // This dependency is exported to consumers, that is to say found on their compile classpath.
@@ -22,7 +23,8 @@ dependencies {
     
     api 'com.google.code.findbugs:jsr305:3.0.2'
     api 'org.junit.jupiter:junit-jupiter-engine:5.0.2'
-    api 'org.testng:testng:6.10'/*TODO: convert these exclusion lines:
+    //api 'org.testng:testng:6.10'
+    /*TODO: convert these exclusion lines:
     <dependency>
         <groupId>org.testng</groupId><artifactId>testng</artifactId><version>6.10</version>
         <optional>true</optional>
@@ -31,11 +33,17 @@ dependencies {
            <exclusion><groupId>org.beanshell</groupId><artifactId>bsh</artifactId></exclusion>
         </exclusions>
     </dependency>*/
+    implementation('org.testng:testng:6.10') {
+        exclude group: 'com.google.inject', module: 'guice'
+        exclude group: 'org.beanshell', module: 'bsh'
+    }
     
     
     api 'org.springframework:spring-web:4.2.0.RELEASE'
 
-    api 'javax:javaee-api:7.0'/*TODO:
+    implementation( 'javax:javaee-api:7.0') {
+        exclude group: 'com.sun.mail', module: 'javax.mail'
+    }/*TODO:
     <dependency>
         <groupId>javax</groupId><artifactId>javaee-api</artifactId><version>7.0</version>
         <optional>true</optional>
