@@ -1,31 +1,46 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
+// Apply the java-library plugin to add support for Java Library
+apply plugin: 'java-library'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
 }
 
-ext {
-    minSdkVersion = 9
-    targetSdkVersion = 26
-    compileSdkVersion = 26
-    buildToolsVersion = '26.0.2'
+dependencies {
+    // This dependency is exported to consumers, that is to say found on their compile classpath.
+    //api 'org.apache.commons:commons-math3:3.6.1'
 
-    versionCode = 1
-    versionName = '0.1'
+    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
+    //implementation 'com.google.guava:guava:23.0'
+
+    // Use JUnit test framework
+    implementation 'junit:junit:4.12'
+    
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    implementation 'org.junit.jupiter:junit-jupiter-engine:5.0.2'
+    implementation 'org.testng:testng:6.10'/*TODO: convert these exclusion lines:
+    <dependency>
+        <groupId>org.testng</groupId><artifactId>testng</artifactId><version>6.10</version>
+        <optional>true</optional>
+        <exclusions>
+           <exclusion><groupId>com.google.inject</groupId><artifactId>guice</artifactId></exclusion>
+           <exclusion><groupId>org.beanshell</groupId><artifactId>bsh</artifactId></exclusion>
+        </exclusions>
+    </dependency>*/
+    
+    
+    implementation 'org.springframework:spring-web:4.2.0.RELEASE'
+
+    implementation 'javax:javaee-api:7.0'/*TODO:
+    <dependency>
+        <groupId>javax</groupId><artifactId>javaee-api</artifactId><version>7.0</version>
+        <optional>true</optional>
+        <exclusions>
+            <exclusion><groupId>com.sun.mail</groupId><artifactId>javax.mail</artifactId></exclusion>
+        </exclusions>
+    </dependency>*/
+
 }
 
-allprojects {
-    repositories {
-        jcenter()
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
