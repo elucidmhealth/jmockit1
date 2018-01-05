@@ -12,17 +12,11 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 dependencies {
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    //api 'org.apache.commons:commons-math3:3.6.1'
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    //implementation 'com.google.guava:guava:23.0'
-
     // Use JUnit test framework
-    api 'junit:junit:4.12'
+    implementation 'junit:junit:4.12'
     
-    api 'com.google.code.findbugs:jsr305:3.0.2'
-    api 'org.junit.jupiter:junit-jupiter-engine:5.0.2'
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
+    //implementation 'org.junit.jupiter:junit-jupiter-engine:5.0.2'
     //api 'org.testng:testng:6.10'
     /*TODO: convert these exclusion lines:
     <dependency>
@@ -38,9 +32,6 @@ dependencies {
         exclude group: 'org.beanshell', module: 'bsh'
     }
     
-    
-    api 'org.springframework:spring-web:4.2.0.RELEASE'
-
     implementation( 'javax:javaee-api:7.0') {
         exclude group: 'com.sun.mail', module: 'javax.mail'
     }/*TODO:
